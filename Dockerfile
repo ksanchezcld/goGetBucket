@@ -15,7 +15,7 @@ COPY main.go ./
 RUN go build -v -o ${GOPATH}/bin/gogetbucket
 
 # Final Container
-FROM alpine:3.7
+FROM alpine:3.21.1
 LABEL maintainer="Anshuman Bhartiya"
 COPY --from=build-env /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build-env /go/bin/gogetbucket /usr/bin/gogetbucket
